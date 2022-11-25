@@ -30,7 +30,6 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 	public void setTable(JTable table) {
 		this.table = table;
 	}
-
 	/**
 	 * Launch the application.
 	 */
@@ -53,7 +52,7 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 	public ListadoTitularesFrame() {
 		setTitle("Listado de Titulares");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 737, 459);
+		setBounds(100, 100, 824, 459);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -71,7 +70,7 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 				presenter.buscarTitularesBy(txtNombre.getText());				
 			}
 		});
-		btnBuscar.setBounds(130, 5, 100, 23);
+		btnBuscar.setBounds(130, 5, 112, 23);
 		contentPane.add(btnBuscar);
 		
 		JButton btnAgregar = new JButton("Agregar");
@@ -85,7 +84,7 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 				visualizarListadoTitulares();
 			}
 		});
-		btnAgregar.setBounds(240, 5, 100, 23);
+		btnAgregar.setBounds(276, 4, 112, 23);
 		contentPane.add(btnAgregar);
 		
 		JButton btnEditar = new JButton("Editar");
@@ -107,12 +106,12 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 				
 			}
 		});
-		btnEditar.setBounds(350, 5, 100, 23);
+		btnEditar.setBounds(419, 4, 112, 23);
 		contentPane.add(btnEditar);
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 48, 673, 350);
+		scrollPane.setBounds(20, 36, 767, 373);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -129,19 +128,21 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 				new Object[][] {
 				},
 				new String[] {
-					"Id", "Nombre", "Direccion"
-				}
-			) {
-				boolean[] columnEditables = new boolean[] {
-					true, true, false
-				};
-				public boolean isCellEditable(int row, int column) {
-					return columnEditables[column];
-				}
-			});
-			table.getColumnModel().getColumn(1).setPreferredWidth(194);
-			table.getColumnModel().getColumn(2).setResizable(false);
-			table.getColumnModel().getColumn(2).setPreferredWidth(351);
+						"ID", "NOMBRE", "DIRECCION", "DOCUMENTO", "ESTADO"
+					}
+				) {
+					boolean[] columnEditables = new boolean[] {
+						false, true, true, true, true
+					};
+					public boolean isCellEditable(int row, int column) {
+						return columnEditables[column];
+					}
+				});
+				table.getColumnModel().getColumn(0).setPreferredWidth(45);
+				table.getColumnModel().getColumn(1).setPreferredWidth(96);
+				table.getColumnModel().getColumn(2).setPreferredWidth(187);
+				table.getColumnModel().getColumn(3).setPreferredWidth(52);
+				table.getColumnModel().getColumn(4).setPreferredWidth(134);
 	}
 	
 	@Override

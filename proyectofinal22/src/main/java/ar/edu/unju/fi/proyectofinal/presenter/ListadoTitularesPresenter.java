@@ -34,10 +34,12 @@ public class ListadoTitularesPresenter {
 	private void cargarModelFor(List<Titular> listadoTitulares) {
 		DefaultTableModel model = (DefaultTableModel)ventanaTitulares.getTable().getModel();
 		for(Titular t:listadoTitulares) {
-			Object[] data = new Object[3];
+			Object[] data = new Object[5];
 			data[0]=t.getId();
 			data[1]=t.getNombre();
 			data[2]=t.getDireccion();
+			data[3]=t.getDni();
+			data[4]=t.getEstado();
 			model.addRow(data);
 		}
 	}
