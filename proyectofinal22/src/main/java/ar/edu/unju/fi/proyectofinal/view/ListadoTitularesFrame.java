@@ -16,6 +16,10 @@ import javax.swing.table.DefaultTableModel;
 
 import ar.edu.unju.fi.proyectofinal.presenter.ListadoTitularesPresenter;
 import ar.edu.unju.fi.proyectofinal.presenter.views.IViewTitulares;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 
@@ -50,10 +54,12 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 	 * Create the frame.
 	 */
 	public ListadoTitularesFrame() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\user-icon (1).png"));
 		setTitle("Listado de Titulares");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 824, 459);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(192, 192, 192));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -118,6 +124,11 @@ public class ListadoTitularesFrame extends JFrame implements IViewTitulares{
 		table.setRowSelectionAllowed(true);
 		setTableModelFor(table);
 		scrollPane.setViewportView(table);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\money-fondo.jpg"));
+		lblNewLabel.setBounds(0, 0, 808, 420);
+		contentPane.add(lblNewLabel);
 		presenter = new ListadoTitularesPresenter(this);
 		
 		visualizarListadoTitulares();

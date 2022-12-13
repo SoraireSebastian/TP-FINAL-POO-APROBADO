@@ -11,6 +11,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -41,11 +45,13 @@ public class VentanaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ricky\\Downloads\\user-icon (1).png"));
 		setTitle("Banco Macro S.A.");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 569, 354);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setForeground(new Color(255, 255, 255));
 		setJMenuBar(menuBar);
 		
 		JMenu menuVentanaPrincipal = new JMenu("Funcionalidades");
@@ -71,14 +77,18 @@ public class VentanaPrincipal extends JFrame {
 		JMenuItem menuSalir = new JMenuItem("Salir");
 		menuSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
 			}
 		});
 		menuVentanaPrincipal.add(menuSalir);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\fondo dollar.jpg"));
+		lblNewLabel.setBounds(0, 0, 548, 293);
+		contentPane.add(lblNewLabel);
 	}
-
 }

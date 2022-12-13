@@ -22,15 +22,15 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Color;
 
 public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 
 	private JPanel contentPane;
 	private JTextField n1;
 	private GestionaSaldoPresenter presenter;
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -52,41 +52,42 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 	
 	//CONTRUCTOR
 	////////////////////////////////////
-	/////////////////////////////////
-	
-	
 	/**
 	 * Create the frame.
 	 */
 	public GestionarSaldoFrame(Integer idCuenta) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\user-icon (1).png"));
 		
 		presenter = new GestionaSaldoPresenter(this);
 		setTitle("Gestionar Saldo");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 280);
+		setBounds(100, 100, 602, 360);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Seleccionar Opcion");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(141, 11, 140, 23);
+		lblNewLabel.setBounds(227, 121, 142, 23);
 		contentPane.add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Depositar", "Extraer"}));
-		comboBox.setBounds(129, 45, 152, 23);
+		comboBox.setBounds(217, 162, 152, 29);
 		contentPane.add(comboBox);
 		
 		JLabel lblNewLabel_1 = new JLabel("    Ingrese Monto");
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(141, 95, 140, 23);
+		lblNewLabel_1.setBounds(229, 202, 140, 23);
 		contentPane.add(lblNewLabel_1);
 		
 		n1 = new JTextField();
-		n1.setBounds(141, 129, 140, 23);
+		n1.setBounds(217, 236, 152, 23);
 		contentPane.add(n1);
 		n1.setColumns(10);
 		
@@ -101,17 +102,30 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 					//num=Double.parseDouble(n1.getText()); //Transforma  lo ingresado en la casila n1 a double y lo almacena en la variable num
 					//resultado.setText(String.valueOf(num));
 					deposito(idCuenta);
+					
 				}
 				if(opcion.equalsIgnoreCase("Extraer")){
 					//num=Double.parseDouble(n1.getText()); //Transforma  lo ingresado en la casila n1 a double y lo almacena en la variable num
 					//resultado.setText(String.valueOf(num));
 					extraccion(idCuenta);
+					
+					
 				}
-				
+				dispose();//cierra la ventana actual metodo heredado del JFrame	
 			}
 		});
-		btnNewButton.setBounds(164, 184, 89, 23);
+		btnNewButton.setBounds(242, 288, 97, 23);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\get-money-icon.png"));
+		lblNewLabel_2.setBounds(217, 11, 140, 99);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("New label");
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background.jpg"));
+		lblNewLabel_3.setBounds(0, 0, 585, 322);
+		contentPane.add(lblNewLabel_3);
 		
 	}
 
@@ -122,12 +136,11 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 		
 	}
 
+	
 	@Override
 	public void extraccion(Integer idCuenta) {
 		double num=Double.parseDouble(n1.getText());
 		presenter.extraerSaldo(num,idCuenta);
 		
 	}
-	
-
 }

@@ -16,6 +16,12 @@ import javax.swing.border.EmptyBorder;
 import ar.edu.unju.fi.proyectofinal.dominio.Titular;
 import ar.edu.unju.fi.proyectofinal.presenter.CuentaBancariaPresenter;
 import ar.edu.unju.fi.proyectofinal.presenter.views.IViewCuentaBancaria;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Toolkit;
 
 public class AltaCuentaBancariaFrame extends JDialog implements IViewCuentaBancaria{
 	private JPanel contentPane;
@@ -25,6 +31,8 @@ public class AltaCuentaBancariaFrame extends JDialog implements IViewCuentaBanca
 	private JComboBox<Titular> comboTitulares;
 	
 	private CuentaBancariaPresenter cuentaBancariaPresenter;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
 	
 	/**
 	 * Launch the application.
@@ -46,45 +54,68 @@ public class AltaCuentaBancariaFrame extends JDialog implements IViewCuentaBanca
 	 * Create the frame.
 	 */
 	public AltaCuentaBancariaFrame(Integer idCuenta) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\user-icon (1).png"));
 		
 		cuentaBancariaPresenter = new CuentaBancariaPresenter(this);
 		
 		setTitle("Alta Cuenta Bancaria");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(10, 100, 393, 226);
+		setBounds(10, 100, 575, 362);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNombre = new JLabel("Tipo");
-		lblNombre.setBounds(10, 8, 70, 14);
+		JLabel lblNombre = new JLabel("Tipo*");
+		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNombre.setForeground(new Color(0, 0, 0));
+		lblNombre.setBounds(10, 159, 70, 14);
 		contentPane.add(lblNombre);		
 		comboTipoCuenta = new JComboBox<String>();
-		comboTipoCuenta.setBounds(100, 8, 150, 17);
+		comboTipoCuenta.setBounds(198, 159, 150, 26);
 		comboTipoCuenta.addItem("CAJA-AHORRO");
 		comboTipoCuenta.addItem("CUENTA-CORRIENTE");		
 		contentPane.add(comboTipoCuenta);
-		JLabel lblCliente = new JLabel("Titular");
-		lblCliente.setBounds(10, 36, 98, 14);
+		JLabel lblCliente = new JLabel("Titular*");
+		lblCliente.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCliente.setForeground(new Color(0, 0, 0));
+		lblCliente.setBounds(10, 196, 98, 17);
 		contentPane.add(lblCliente);
 		comboTitulares = new JComboBox<Titular>();
-		comboTitulares.setBounds(100,36, 150, 20);
+		comboTitulares.setBounds(198,196, 150, 20);
 		cuentaBancariaPresenter.cargarComboTitulares();
 		contentPane.add(comboTitulares);
-		JLabel lblNumeroCuenta = new JLabel("Numero");
-		lblNumeroCuenta.setBounds(10, 64, 98, 14);
+		JLabel lblNumeroCuenta = new JLabel("Numero Cuenta*");
+		lblNumeroCuenta.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNumeroCuenta.setForeground(new Color(0, 0, 0));
+		lblNumeroCuenta.setBounds(10, 227, 135, 17);
 		contentPane.add(lblNumeroCuenta);		
 		txtNumeroCuenta = new JTextField();
-		txtNumeroCuenta.setBounds(100, 64, 104, 20);
+		txtNumeroCuenta.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char num = e.getKeyChar();
+				if(num<'0'||num>'9')e.consume();
+			}
+		});
+		txtNumeroCuenta.setBounds(198, 227, 150, 20);
 		contentPane.add(txtNumeroCuenta);
 		txtNumeroCuenta.setColumns(10);
-		JLabel lblSaldo = new JLabel("Saldo");
-		lblSaldo.setBounds(10, 88, 98, 14);
+		JLabel lblSaldo = new JLabel("Saldo*");
+		lblSaldo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblSaldo.setForeground(new Color(0, 0, 0));
+		lblSaldo.setBounds(10, 258, 104, 17);
 		contentPane.add(lblSaldo);		
 		txtSaldo = new JTextField();
-		txtSaldo.setBounds(100, 88, 104, 20);
+		txtSaldo.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				char num = e.getKeyChar();
+				if(num<'0'||num>'9')e.consume();
+			}
+		});
+		txtSaldo.setBounds(198, 258, 150, 20);
 		contentPane.add(txtSaldo);
 		txtSaldo.setColumns(10);
 		JButton btnGuardar = new JButton("Guardar");
@@ -93,8 +124,18 @@ public class AltaCuentaBancariaFrame extends JDialog implements IViewCuentaBanca
 				registrarCuentaBancaria();	
 			}
 		});
-		btnGuardar.setBounds(135, 123, 119, 23);
+		btnGuardar.setBounds(216, 289, 119, 23);
 		contentPane.add(btnGuardar);
+		
+		lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\icono-dollar.png"));
+		lblNewLabel.setBounds(198, 11, 135, 118);
+		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\money-fondo.jpg"));
+		lblNewLabel_1.setBounds(0, 0, 559, 323);
+		contentPane.add(lblNewLabel_1);
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class ListadoCuentasPresenter {
 		List<CuentaBancaria> listadoCuentas = cuentaDAO.getAll();
 		DefaultTableModel model = (DefaultTableModel) ventanaCuentas.getTable().getModel();
 		for(CuentaBancaria cuenta:listadoCuentas) {
-			Object[] data = new Object[5];			
+			Object[] data = new Object[6];			
 			data[0] = cuenta.getId();
 			data[1] = cuenta.getTitular().getNombre();
 			if (cuenta instanceof CajaAhorro) {
@@ -35,6 +35,7 @@ public class ListadoCuentasPresenter {
 			}
 			data[3] = cuenta.getNumeroCuenta();
 			data[4] = cuenta.getSaldo();
+			data[5] = cuenta.getFecha();
 			model.addRow(data);
 		}
 	}
@@ -46,7 +47,7 @@ public class ListadoCuentasPresenter {
 		for(CuentaBancaria cuenta:listadoCuentas) {
 			 num=Integer.parseInt(cuenta.getNumeroCuenta());
 			if(num==numCuenta) {
-				Object[] data = new Object[5];			
+				Object[] data = new Object[6];			
 				data[0] = cuenta.getId();
 				data[1] = cuenta.getTitular().getNombre();
 				if (cuenta instanceof CajaAhorro) {
@@ -56,6 +57,7 @@ public class ListadoCuentasPresenter {
 				}
 				data[3] = cuenta.getNumeroCuenta();
 				data[4] = cuenta.getSaldo();
+				data[5] = cuenta.getFecha();
 				model.addRow(data);
 			}
 		}
