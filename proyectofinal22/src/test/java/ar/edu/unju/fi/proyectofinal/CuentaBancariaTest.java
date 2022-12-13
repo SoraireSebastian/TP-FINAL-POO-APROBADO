@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
@@ -76,6 +77,35 @@ public class CuentaBancariaTest {
 		CuentaBancaria cuenta = cuentaBancariaDAO.getBy(numeroCuenta);
 		assertEquals("Mariana Mamani", cuenta.getTitular().getNombre());
 		
+	}
+	
+	
+	@Test
+	@DisplayName("Prueba realizar deposito")
+	@Order(4)
+	void realizarDeposito() {
+		System.out.println("Comienza...");
+		
+		String numCuenta = "101";
+		Double importeDeposito = 50d;
+		CuentaBancaria cuenta = cuentaBancariaDAO.getBy(numCuenta);
+		cuenta.setSaldo(cuenta.getSaldo() + importeDeposito);
+		cuentaBancariaDAO.depositar(cuenta);
+		assertEquals(150d,cuenta.getSaldo());
+	}
+	
+	
+	@Test
+	@DisplayName("Prueba realizar extraccion")
+	@Order(5)
+	void realizarExtraccion() {
+		String numeroCuenta = "101";
+		CuentaBancaria cuenta = cuentaBancariaDAO.getBy(numeroCuenta);
+		float importeExtraccion = 500;
+		cuenta.setSaldo(cuenta.getSaldo() - importeExtraccion);
+		cuentaBancariaDAO.extraer(cuenta);
+		assertEquals(-350.0,cuenta.getSaldo());
+						
 	}
 	
 	

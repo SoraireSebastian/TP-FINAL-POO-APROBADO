@@ -28,15 +28,15 @@ public class GestionaSaldoPresenter {
 			double sum = listadoCuentas.get(idCuenta).getSaldo()+monto;
 			listadoCuentas.get(idCuenta).setSaldo(sum);
 			cuentaDAO.save(listadoCuentas.get(idCuenta));
-			JOptionPane.showMessageDialog(null, "Operacion Correcta");
+			JOptionPane.showMessageDialog(null, "Operación Correcta");
 		}
 		else {
 			double sum,cuenta;
 			cuenta = (monto*10)/100;
-			sum = listadoCuentas.get(idCuenta).getSaldo()+monto+cuenta;
+			sum = listadoCuentas.get(idCuenta).getSaldo()+monto-cuenta;
 			listadoCuentas.get(idCuenta).setSaldo(sum);
 			cuentaDAO.save(listadoCuentas.get(idCuenta));
-			JOptionPane.showMessageDialog(null, "Se agrego monto por comision del 10%");
+			JOptionPane.showMessageDialog(null, "Se realizó un 10% de comision por el depósito");
 		}
 	}
 	
@@ -44,14 +44,14 @@ public class GestionaSaldoPresenter {
 	public void extraerSaldo(double monto,Integer idCuenta){
 		List<CuentaBancaria> listadoCuentas = cuentaDAO.getAll();
 		if (listadoCuentas.get(idCuenta) instanceof CajaAhorro) {
-			if((monto <= listadoCuentas.get(idCuenta).getSaldo())&&(monto <= 30)) {
+			if((monto <= listadoCuentas.get(idCuenta).getSaldo())&&(monto <= 500)) {
 				double sum = listadoCuentas.get(idCuenta).getSaldo()-monto;
 				listadoCuentas.get(idCuenta).setSaldo(sum);
 				cuentaDAO.save(listadoCuentas.get(idCuenta));
-				JOptionPane.showMessageDialog(null, "Operacion Correcta");
+				JOptionPane.showMessageDialog(null, "Operación Exitosa");
 			}
 			else {
-				JOptionPane.showMessageDialog(null, "Solo se permite extraer 30");
+				JOptionPane.showMessageDialog(null, "Solo se permite extraer hasta $500");
 			}
 			
 		}
@@ -60,7 +60,7 @@ public class GestionaSaldoPresenter {
 				double sum = listadoCuentas.get(idCuenta).getSaldo()-monto;
 				listadoCuentas.get(idCuenta).setSaldo(sum);
 				cuentaDAO.save(listadoCuentas.get(idCuenta));
-				JOptionPane.showMessageDialog(null, "Operacion Correcta");
+				JOptionPane.showMessageDialog(null, "Operación Exitosa");
 			}else {
 				JOptionPane.showMessageDialog(null, "No posee suficiente saldo");
 			}

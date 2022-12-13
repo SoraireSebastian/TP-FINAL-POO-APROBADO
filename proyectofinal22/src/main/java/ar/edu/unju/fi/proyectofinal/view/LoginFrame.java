@@ -84,7 +84,7 @@ public class LoginFrame extends JFrame implements IViewlogin{
 					ListadoTitularesFrame  titulares = new ListadoTitularesFrame();
 					VentanaPrincipal frame = new VentanaPrincipal();
 					frame.setVisible(true);
-					
+					dispose();
 					
 					//titulares.setVisible(true);	
 				}else {

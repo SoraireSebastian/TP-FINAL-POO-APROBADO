@@ -12,5 +12,8 @@ public interface CuentaBancariaDAO {
 
 	CuentaBancaria getBy(String numeroCuenta);
 	 
+	void depositar(CuentaBancaria cuentaImporte);
+	
+	public void extraer(CuentaBancaria cuentaExtraccion);
 }  
 

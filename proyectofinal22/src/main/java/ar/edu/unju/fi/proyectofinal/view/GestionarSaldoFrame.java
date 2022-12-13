@@ -74,7 +74,7 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(227, 121, 142, 23);
 		contentPane.add(lblNewLabel);
-		
+
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Depositar", "Extraer"}));
 		comboBox.setBounds(217, 162, 152, 29);
@@ -113,8 +113,6 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 				}
 				
 				//dispose();//cierra la ventana actual metodo heredado del JFrame	
-				
-				
 			}
 		});
 		btnNewButton.setBounds(242, 288, 97, 23);

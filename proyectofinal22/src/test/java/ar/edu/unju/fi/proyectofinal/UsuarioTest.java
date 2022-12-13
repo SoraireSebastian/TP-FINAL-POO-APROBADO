@@ -48,7 +48,7 @@ public class UsuarioTest {
 		size += 1;
 		assertEquals(size, usuarios.size());
 	}
-	
+	@Disabled
 	@Test
 	@DisplayName("Prueba login Usuario")
 	void loginUsuarioTest() {
