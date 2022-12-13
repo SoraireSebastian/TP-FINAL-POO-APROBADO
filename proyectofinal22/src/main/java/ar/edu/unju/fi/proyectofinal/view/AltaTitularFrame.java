@@ -3,6 +3,7 @@ package ar.edu.unju.fi.proyectofinal.view;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 
 import ar.edu.unju.fi.proyectofinal.presenter.TitularPresenter;
 import ar.edu.unju.fi.proyectofinal.presenter.views.IViewTitular;
+import javax.swing.ImageIcon;
 
 public class AltaTitularFrame extends JDialog implements IViewTitular{
 
@@ -61,7 +63,7 @@ public class AltaTitularFrame extends JDialog implements IViewTitular{
 		titularPresenter = new TitularPresenter(this);
 		setTitle("Alta Titular");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 818, 414);
+		setBounds(100, 100, 914, 414);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.BLUE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -219,7 +221,7 @@ public class AltaTitularFrame extends JDialog implements IViewTitular{
 		JLabel lblFormularioDeRegistro = new JLabel("Formulario de Registro Titular");
 		lblFormularioDeRegistro.setForeground(Color.DARK_GRAY);
 		lblFormularioDeRegistro.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblFormularioDeRegistro.setBounds(10, 11, 298, 35);
+		lblFormularioDeRegistro.setBounds(11, 11, 298, 35);
 		contentPane.add(lblFormularioDeRegistro);
 		lblNombre1 = new JLabel("");
 		lblNombre1.setForeground(Color.RED);
@@ -251,6 +253,12 @@ public class AltaTitularFrame extends JDialog implements IViewTitular{
 		comboEstado.addItem("Habilitado");
 		comboEstado.addItem("Deshabilitado");
 		contentPane.add(comboEstado);
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/img/money-fondo.jpg")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(0, 0, 898, 375);
+		contentPane.add(lblNewLabel);
 
 		// ------------COMBO BOX DE FORMULARIO ALTA TITULAR ----------------------
 

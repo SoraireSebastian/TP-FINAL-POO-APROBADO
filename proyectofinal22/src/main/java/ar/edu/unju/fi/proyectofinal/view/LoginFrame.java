@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.proyectofinal.view;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,9 +27,6 @@ public class LoginFrame extends JFrame implements IViewlogin{
 	private JTextField txtPassword;
 	private LoginPresenter loginPresenter;
 	private boolean loggedIn = false;
-	
-	
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -82,9 +80,6 @@ public class LoginFrame extends JFrame implements IViewlogin{
 			public void actionPerformed(ActionEvent e) {		
 				loggedIn =  loginPresenter.validar(txtUsuario.getText(), txtPassword.getText());
 				//loginPresenter.validar(txtUsuario.getText(), txtPassword.getText());				
-				
-				
-				
 				if (loggedIn) {
 					ListadoTitularesFrame  titulares = new ListadoTitularesFrame();
 					VentanaPrincipal frame = new VentanaPrincipal();
@@ -100,13 +95,20 @@ public class LoginFrame extends JFrame implements IViewlogin{
 				//frame.setVisible(true);
 			}
 		});
+		
 		btnLogin.setBounds(194, 273, 100, 23);
 		contentPane.add(btnLogin);
+		/////////////////////////////////////////////////
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("src/main/resources/img/owl-icon.png"));
-		lblNewLabel.setBounds(172, 11, 132, 180);
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/img/owl-icon.png")).getImage();
+		lblNewLabel.setIcon(new ImageIcon(img));
+		lblNewLabel.setBounds(171, 11, 138, 176);
 		contentPane.add(lblNewLabel);
+		
+		/////////////////////////////////////////////
 	}
 	
 //	private void login() {
@@ -126,7 +128,6 @@ public class LoginFrame extends JFrame implements IViewlogin{
 		txtUsuario.setText(null);
 		txtPassword.setText(null);
 	}
-	
 	@Override
 	public void visualizarMain() {
 		this.setVisible(false);

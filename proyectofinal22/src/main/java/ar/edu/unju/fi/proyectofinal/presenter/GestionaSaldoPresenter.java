@@ -28,6 +28,7 @@ public class GestionaSaldoPresenter {
 			double sum = listadoCuentas.get(idCuenta).getSaldo()+monto;
 			listadoCuentas.get(idCuenta).setSaldo(sum);
 			cuentaDAO.save(listadoCuentas.get(idCuenta));
+			JOptionPane.showMessageDialog(null, "Operacion Correcta");
 		}
 		else {
 			double sum,cuenta;
@@ -47,6 +48,7 @@ public class GestionaSaldoPresenter {
 				double sum = listadoCuentas.get(idCuenta).getSaldo()-monto;
 				listadoCuentas.get(idCuenta).setSaldo(sum);
 				cuentaDAO.save(listadoCuentas.get(idCuenta));
+				JOptionPane.showMessageDialog(null, "Operacion Correcta");
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "Solo se permite extraer 30");
@@ -58,6 +60,7 @@ public class GestionaSaldoPresenter {
 				double sum = listadoCuentas.get(idCuenta).getSaldo()-monto;
 				listadoCuentas.get(idCuenta).setSaldo(sum);
 				cuentaDAO.save(listadoCuentas.get(idCuenta));
+				JOptionPane.showMessageDialog(null, "Operacion Correcta");
 			}else {
 				JOptionPane.showMessageDialog(null, "No posee suficiente saldo");
 			}

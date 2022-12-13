@@ -111,7 +111,10 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 					
 					
 				}
-				dispose();//cierra la ventana actual metodo heredado del JFrame	
+				
+				//dispose();//cierra la ventana actual metodo heredado del JFrame	
+				
+				
 			}
 		});
 		btnNewButton.setBounds(242, 288, 97, 23);
