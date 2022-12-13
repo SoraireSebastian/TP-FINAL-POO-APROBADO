@@ -5,7 +5,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import ar.edu.unju.fi.proyectofinal.dao.TitularDAO;
-import ar.edu.unju.fi.proyectofinal.dao.impl.CuentaBancariaDAOImpl;
 import ar.edu.unju.fi.proyectofinal.dao.impl.TitularDAOImpl;
 import ar.edu.unju.fi.proyectofinal.dominio.Titular;
 import ar.edu.unju.fi.proyectofinal.presenter.views.IViewTitulares;
@@ -16,30 +15,30 @@ public class ListadoTitularesPresenter {
 	private TitularDAO titularDAO;
 
 	public ListadoTitularesPresenter(IViewTitulares ventanaTitulares) {
-		this.ventanaTitulares = ventanaTitulares;		
+		this.ventanaTitulares = ventanaTitulares;
 	}
-	
+
 	public void visualizarTitulares() {
 		titularDAO = new TitularDAOImpl(ManagerContext.getInstance().getEntityManager());
 		List<Titular> listadoTitulares = titularDAO.getAll();
-		cargarModelFor(listadoTitulares);		
+		cargarModelFor(listadoTitulares);
 	}
 
-	public void buscarTitularesBy(String nombre) {	
+	public void buscarTitularesBy(String nombre) {
 		titularDAO = new TitularDAOImpl(ManagerContext.getInstance().getEntityManager());
 		List<Titular> listadoTitulares = titularDAO.getByNombre(nombre);
 		cargarModelFor(listadoTitulares);
 	}
-	
+
 	private void cargarModelFor(List<Titular> listadoTitulares) {
-		DefaultTableModel model = (DefaultTableModel)ventanaTitulares.getTable().getModel();
-		for(Titular t:listadoTitulares) {
+		DefaultTableModel model = (DefaultTableModel) ventanaTitulares.getTable().getModel();
+		for (Titular t : listadoTitulares) {
 			Object[] data = new Object[5];
-			data[0]=t.getId();
-			data[1]=t.getNombre();
-			data[2]=t.getDireccion();
-			data[3]=t.getDni();
-			data[4]=t.getEstado();
+			data[0] = t.getId();
+			data[1] = t.getNombre();
+			data[2] = t.getDireccion();
+			data[3] = t.getDocumento();
+			data[4] = t.getEstado();
 			model.addRow(data);
 		}
 	}

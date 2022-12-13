@@ -56,7 +56,7 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 	 * Create the frame.
 	 */
 	public GestionarSaldoFrame(Integer idCuenta) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\user-icon (1).png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/resources/img/user-icon (1).png"));
 		
 		presenter = new GestionaSaldoPresenter(this);
 		setTitle("Gestionar Saldo");
@@ -118,12 +118,12 @@ public class GestionarSaldoFrame extends JFrame implements IViewGestionarSaldo {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\get-money-icon.png"));
+		lblNewLabel_2.setIcon(new ImageIcon("src/main/resources/img/get-money-icon.png"));
 		lblNewLabel_2.setBounds(217, 11, 140, 99);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background.jpg"));
+		lblNewLabel_3.setIcon(new ImageIcon("src/main/resources/img/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background.jpg"));
 		lblNewLabel_3.setBounds(0, 0, 585, 322);
 		contentPane.add(lblNewLabel_3);
 		

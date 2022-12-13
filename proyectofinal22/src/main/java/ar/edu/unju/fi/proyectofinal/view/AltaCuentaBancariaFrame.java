@@ -128,12 +128,12 @@ public class AltaCuentaBancariaFrame extends JDialog implements IViewCuentaBanca
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\icono-dollar.png"));
+		lblNewLabel.setIcon(new ImageIcon("src/main/resources/img/icono-dollar.png"));
 		lblNewLabel.setBounds(198, 11, 135, 118);
 		contentPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\money-fondo.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("src/main/resources/img/money-fondo.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 559, 323);
 		contentPane.add(lblNewLabel_1);
 	}

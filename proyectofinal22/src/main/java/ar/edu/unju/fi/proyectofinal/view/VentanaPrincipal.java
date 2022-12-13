@@ -87,7 +87,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\fondo dollar.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("src/main/resources/img/fondo dollar.jpg"));
 		lblNewLabel.setBounds(0, 0, 548, 293);
 		contentPane.add(lblNewLabel);
 	}

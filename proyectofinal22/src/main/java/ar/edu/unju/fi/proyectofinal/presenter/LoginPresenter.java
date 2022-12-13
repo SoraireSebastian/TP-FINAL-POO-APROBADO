@@ -4,7 +4,6 @@ import java.util.List;
 
 import ar.edu.unju.fi.proyectofinal.dao.UsuarioDAO;
 import ar.edu.unju.fi.proyectofinal.dao.impl.UsuarioDAOImpl;
-import ar.edu.unju.fi.proyectofinal.dominio.CuentaBancaria;
 import ar.edu.unju.fi.proyectofinal.dominio.Usuario;
 import ar.edu.unju.fi.proyectofinal.presenter.views.IViewlogin;
 import ar.edu.unju.fi.proyectofinal.util.ManagerContext;
@@ -43,10 +42,4 @@ public class LoginPresenter {
 			}
 			return band;
 		}
-		//if (usuario.equals("admin") && password.equals("admin")) {
-			//return true;	
-		//}else {
-			//return false;
-			//}
-		//}
-}
+	}

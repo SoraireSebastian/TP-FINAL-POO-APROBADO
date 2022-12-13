@@ -82,10 +82,15 @@ public class LoginFrame extends JFrame implements IViewlogin{
 			public void actionPerformed(ActionEvent e) {		
 				loggedIn =  loginPresenter.validar(txtUsuario.getText(), txtPassword.getText());
 				//loginPresenter.validar(txtUsuario.getText(), txtPassword.getText());				
+				
+				
+				
 				if (loggedIn) {
 					ListadoTitularesFrame  titulares = new ListadoTitularesFrame();
 					VentanaPrincipal frame = new VentanaPrincipal();
 					frame.setVisible(true);
+					
+					
 					//titulares.setVisible(true);	
 				}else {
 					JOptionPane.showMessageDialog(null, "Los Datos de Acceso son Incorrectos");
@@ -99,7 +104,7 @@ public class LoginFrame extends JFrame implements IViewlogin{
 		contentPane.add(btnLogin);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\ricky\\git\\TP-FINAL-POO-REGULAR\\proyectofinal22\\src\\main\\resources\\img\\owl-icon.png"));
+		lblNewLabel.setIcon(new ImageIcon("src/main/resources/img/owl-icon.png"));
 		lblNewLabel.setBounds(172, 11, 132, 180);
 		contentPane.add(lblNewLabel);
 	}

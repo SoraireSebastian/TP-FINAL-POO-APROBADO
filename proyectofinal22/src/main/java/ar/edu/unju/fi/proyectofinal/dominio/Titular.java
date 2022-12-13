@@ -11,7 +11,7 @@ public class Titular {
 	private Integer id;
 	private String nombre;
 	private String direccion;
-	private String dni;
+	private String documento;
 	private String email;
 	private String estado;
 	
@@ -43,12 +43,12 @@ public class Titular {
 	}
 	//////////////////////////////////////////////////////
 	@Column(name = "documento")
-	public String getDni() {
-		return dni;
+	public String getDocumento() {
+		return documento;
 	}
 	
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void setDocumento(String documento) {
+		this.documento = documento;
 	}
 	///////////////////////////////////////////////////
 	@Column(name = "email")
@@ -72,11 +72,11 @@ public class Titular {
 	
 	
 	
-	public Titular(String nombre, String direccion,String dni,String email,String estado) {
+	public Titular(String nombre, String direccion,String documento,String email,String estado) {
 		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
-		this.dni=dni;
+		this.documento=documento;
 		this.email=email;
 		this.estado=estado;	
 	}
